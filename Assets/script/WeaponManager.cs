@@ -104,8 +104,14 @@ public class WeaponManager : MonoBehaviour {
     private void WeaponChange(string _type, string _name)
     {
         if(_type == "GUN")
+        {
+            HandController.isActivate = false;
             theGunController.GunChange(gunDictionary[_name]);
+        }
         else if(_type == "HAND")
+        {
+            GunController.isActivate = false;
             theHandController.HandChange(handDictionary[_name]);
+        }
     }
 }

@@ -26,7 +26,8 @@ public class HandController : MonoBehaviour {
 
     private void TryAttack()
     {
-        if (Input.GetButton("Fire1"))
+        // Fire1 기본 매핑에는 Left Ctrl이 포함될 수 있어 좌클릭으로 명시 분리.
+        if (Input.GetMouseButton(0))
         {
             if (!isAttack)
             {
