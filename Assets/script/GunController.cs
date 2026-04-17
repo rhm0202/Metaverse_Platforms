@@ -78,7 +78,8 @@ public class GunController : MonoBehaviour {
     // 발사 시도
     private void TryFire()
     {
-        if (Input.GetButton("Fire1") && currentFireRate <= 0 && !isReload)
+        // Fire1 기본 매핑에는 Left Ctrl이 포함될 수 있어 좌클릭으로 명시 분리.
+        if (Input.GetMouseButton(0) && currentFireRate <= 0 && !isReload)
         {
             Fire();
         }

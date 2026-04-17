@@ -43,12 +43,14 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private Camera theCamera;   // 메인 카메라
     private Rigidbody myRigid;  // 물리 처리를 위한 리지드바디
+    private Crosshair theCrosshair;
 
     // 게임 시작 시 초기화
     void Start () {
         // 필요한 컴포넌트 가져오기
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
+        theCrosshair = FindObjectOfType<Crosshair>();
         applySpeed = walkSpeed;  // 초기 이동 속도 설정
 
         // 카메라 초기 위치 설정
@@ -81,11 +83,15 @@ public class PlayerController : MonoBehaviour {
     private void Crouch()
     {
         isCrouch = !isCrouch;  // 앉기 상태 토글
+        if (theCrosshair != null)
+            theCrosshair.CrouchingAnimation(isCrouch);
 
         if (isCrouch)
         {
             applySpeed = crouchSpeed;  // 앉은 상태의 이동 속도 적용
             applyCrouchPosY = crouchPosY;  // 앉은 상태의 카메라 높이 적용
+            if (theCrosshair != null)
+                theCrosshair.RunningAnimation(false);
         }
         else
         {
@@ -161,6 +167,8 @@ public class PlayerController : MonoBehaviour {
 
         isRun = true;
         applySpeed = runSpeed;  // 달리기 속도 적용
+        if (theCrosshair != null)
+            theCrosshair.RunningAnimation(true);
     }
 
     // 달리기 종료
@@ -168,6 +176,8 @@ public class PlayerController : MonoBehaviour {
     {
         isRun = false;
         applySpeed = walkSpeed;  // 기본 걷기 속도로 복귀
+        if (theCrosshair != null)
+            theCrosshair.RunningAnimation(false);
     }
 
     // 플레이어 이동 처리
@@ -176,6 +186,9 @@ public class PlayerController : MonoBehaviour {
         // 입력 받기
         float _moveDirX = Input.GetAxisRaw("Horizontal");  // 좌우 이동
         float _moveDirZ = Input.GetAxisRaw("Vertical");    // 전후 이동
+        bool isWalking = (_moveDirX != 0 || _moveDirZ != 0) && !isRun && !isCrouch;
+        if (theCrosshair != null)
+            theCrosshair.WalkingAnimation(isWalking);
 
         // 이동 방향 계산
         Vector3 _moveHorizontal = transform.right * _moveDirX;

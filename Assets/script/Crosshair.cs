@@ -44,6 +44,11 @@ public class Crosshair : MonoBehaviour {
 
     public void FireAnimation()
     {
+        // Trigger는 누적될 수 있어 발사 직전 초기화해 지연 재생을 방지한다.
+        animator.ResetTrigger("Walk_Fire");
+        animator.ResetTrigger("Crouch_Fire");
+        animator.ResetTrigger("Idle_Fire");
+
         if (animator.GetBool("Walking"))
             animator.SetTrigger("Walk_Fire");
         else if (animator.GetBool("Crouching"))

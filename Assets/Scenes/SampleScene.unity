@@ -6880,6 +6880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1653501583}
   - component: {fileID: 1653501584}
+  - component: {fileID: 1653501585}
   m_Layer: 5
   m_Name: Crosshair
   m_TagString: Untagged
@@ -6933,6 +6934,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1653501585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653501582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece9645c053ec5a4ebd7ff069a92cf3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Crosshair
+  animator: {fileID: 1653501584}
+  go_CrosshairHUD: {fileID: 1653501582}
+  theGunController: {fileID: 977135026}
 --- !u!1 &1701584747
 GameObject:
   m_ObjectHideFlags: 0
@@ -6970,7 +6986,7 @@ MonoBehaviour:
   runSpeed: 50
   crouchSpeed: 15
   jumpForce: 5
-  crouchPosY: 90
+  crouchPosY: -0.7
   lookSensitivity: 5
   cameraRotationLimit: 45
   theCamera: {fileID: 330585545}
@@ -12113,7 +12129,6 @@ GameObject:
   - component: {fileID: 1931940170}
   - component: {fileID: 1931940173}
   - component: {fileID: 1931940172}
-  - component: {fileID: 1931940171}
   m_Layer: 5
   m_Name: BulletUIImage
   m_TagString: Untagged
@@ -12143,21 +12158,6 @@ RectTransform:
   m_AnchoredPosition: {x: -690, y: -540}
   m_SizeDelta: {x: 182, y: 32}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1931940171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931940169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e332a77270c2da3478bc8723bd6cf7cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HUD
-  theGunController: {fileID: 0}
-  go_BulletHUD: {fileID: 0}
-  text_Bullet: []
 --- !u!114 &1931940172
 MonoBehaviour:
   m_ObjectHideFlags: 0
