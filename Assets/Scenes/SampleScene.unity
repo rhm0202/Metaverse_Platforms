@@ -6986,7 +6986,7 @@ MonoBehaviour:
   runSpeed: 50
   crouchSpeed: 15
   jumpForce: 5
-  crouchPosY: -0.7
+  crouchPosY: -0.6
   lookSensitivity: 5
   cameraRotationLimit: 45
   theCamera: {fileID: 330585545}
@@ -12155,9 +12155,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -690, y: -540}
+  m_AnchoredPosition: {x: -210, y: -610}
   m_SizeDelta: {x: 182, y: 32}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1931940172
 MonoBehaviour:
   m_ObjectHideFlags: 0
