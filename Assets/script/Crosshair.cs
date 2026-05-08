@@ -42,6 +42,11 @@ public class Crosshair : MonoBehaviour {
     }
 
 
+    public void JumpingAnimation(bool _flag)
+    {
+        animator.SetBool("Jumping", _flag);
+    }
+
     public void FireAnimation()
     {
         // Trigger는 누적될 수 있어 발사 직전 초기화해 지연 재생을 방지한다.

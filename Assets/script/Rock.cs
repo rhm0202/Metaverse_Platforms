@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Rock : MonoBehaviour {
+
+    [SerializeField]
+    private int hp; // 바위의 체력.
+
+    [SerializeField]
+    private float destroyTime; // 파편 제거 시간
+
+    [SerializeField]
+    private SphereCollider col; // 구체 컬라이더.
+
+
+    // 필요한 게임 오브젝트.
+    [SerializeField]
+    private GameObject go_rock; // 일반 바위.
+    [SerializeField]
+    private GameObject go_debris; // 깨진 바위.
+    [SerializeField]
+    private GameObject go_effect_prefabs; // 채굴 이펙트.
+
+
+    // 필요한 사운드 이름.
+    [SerializeField]
+    private string strike_Sound;
+    [SerializeField]
+    private string destroy_Sound;
+
+
+    public void Mining()
+    {
+        SoundManager.instance.PlaySE(strike_Sound);
+
+        var clone = Instantiate(go_effect_prefabs, col.bounds.center, Quaternion.identity);
+        Destroy(clone, destroyTime);
+
+        hp--;
+
+        if (hp <= 0)
+            Destruction();
+    }
+
+    private void Destruction()
+    {
+        SoundManager.instance.PlaySE(destroy_Sound);
+
+        col.enabled = false;
+        
+        // 바위 이미지 비활성화
+        go_rock.SetActive(false);
+        
+        // 파편 활성화
+        go_debris.SetActive(true);
+        Debug.Log("Rock_Debris 활성화 상태: " + go_debris.activeSelf);
+        
+        // 일정 시간 후 전체 오브젝트 파괴
+        Destroy(gameObject, destroyTime);
+    }
+
+}
