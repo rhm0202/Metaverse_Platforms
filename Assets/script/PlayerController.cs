@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour {
     private void IsGround()
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + 0.1f);
-        theCrosshair.JumpingAnimation(!isGround);
+        // theCrosshair.JumpingAnimation(!isGround);
     }
 
 
@@ -168,7 +168,8 @@ public class PlayerController : MonoBehaviour {
         {
             Running();
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) || theStatusController.GetCurrentSP() <= 0)
+        // if (Input.GetKeyUp(KeyCode.LeftShift) || theStatusController.GetCurrentSP() <= 0)
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             RunningCancel();
         }
