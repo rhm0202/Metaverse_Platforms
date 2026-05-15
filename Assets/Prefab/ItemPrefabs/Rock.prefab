@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ef94ff85653ab48a827a6d0d12b450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickUp
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: f0e71085a8dc1ce4aaf5ffc2e4eac434, type: 2}
 --- !u!65 &5911088981990778407
 BoxCollider:
   m_ObjectHideFlags: 0
