@@ -168,8 +168,7 @@ public class PlayerController : MonoBehaviour {
         {
             Running();
         }
-        // if (Input.GetKeyUp(KeyCode.LeftShift) || theStatusController.GetCurrentSP() <= 0)
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift) || theStatusController.GetCurrentSP() <= 0)
         {
             RunningCancel();
         }
