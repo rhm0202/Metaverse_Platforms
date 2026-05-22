@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rock
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemName: Rock
+  itemDesc: "\uB3CC\uC870\uAC01"
   itemType: 2
   itemImage: {fileID: -74025299, guid: d896a4f2c2160154bb9ad43dae49f0ce, type: 3}
   itemPrefab: {fileID: 1341169976405038308, guid: 83f8f68a7a28d3e41b875afd47e1db3e, type: 3}
